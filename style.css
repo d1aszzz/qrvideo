@@ -1,42 +1,63 @@
-body {
-    font-family: Arial, sans-serif;
+* {
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     min-height: 100vh;
-}
-
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
-}
-
-h1 {
-    color: white;
-    margin-bottom: 2rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-}
-
-.video-wrapper {
-    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 10px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    margin-bottom: 2rem;
 }
 
-.video-wrapper iframe {
-    border-radius: 10px;
+.video-container {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 100vh;
+    max-height: 80vh;
+    border: none;
     display: block;
 }
 
-.description {
-    color: white;
-    font-size: 1.2rem;
-    background: rgba(255,255,255,0.1);
-    padding: 1rem;
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    body {
+        padding: 0;
+        align-items: stretch;
+    }
+    
+    .video-container {
+        max-width: 100%;
+        border-radius: 0;
+    }
+    
+    .video-container iframe {
+        height: 100vh;
+        max-height: none;
+    }
+}
+
+/* Портретная ориентация */
+@media (max-width: 768px) and (orientation: portrait) {
+    .video-container iframe {
+        height: 100vh;
+    }
+}
+
+/* Ландшафтная ориентация */
+@media (max-width: 768px) and (orientation: landscape) {
+    .video-container iframe {
+        height: 100vh;
+    }
 }
